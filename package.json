@@ -1,17 +1,20 @@
 {
-  "name": "first-express",
-  "version": "0.0.0",
-  "private": true,
+  "name": "myapp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "Stefan Klinkusch <stefan.klinkusch@googlemail.com> (https://sklinkusch.now.sh/)",
+  "license": "MIT",
   "dependencies": {
     "color-convert": "^2.0.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
