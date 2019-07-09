@@ -48,5 +48,10 @@ app.get('/convert/hextorgb', (req, res) => {
   return res.json({ red, green, blue });
 });
 
+app.get('/statistics', (req, res) => {
+  const statistics = JSON.parse(fs.readFileSync('statistic.json', 'utf8'));
+  return res.json({ statistics })
+});
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
