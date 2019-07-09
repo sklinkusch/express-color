@@ -15,4 +15,10 @@ app.get('/convert/rgbtohsl', (req, res) => {
   return res.json({ hue, saturation, luminance });
 });
 
+app.get('/convert/rgbtohex', (req, res) => {
+  const { r, g, b } = req.query;
+  const hex = convert.rgb.hex(r, g, b);
+  return res.json({ hex });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
