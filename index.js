@@ -8,5 +8,11 @@ app.get('/convert/keywordtorgb', (req, res) => {
   const [red, green, blue] = color
   return res.json({ red, green, blue })
 });
+app.get('/convert/rgbtohsl', (req, res) => {
+  const { r, g, b } = req.query;
+  const color = convert.rgb.hsl(r, g, b);
+  const [hue, saturation, luminance] = color;
+  return res.json({ hue, saturation, luminance });
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
