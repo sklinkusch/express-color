@@ -1,7 +1,8 @@
 const express = require('express')
 const convertRoute = express.Router()
-const { keywordRGBHandler, RGB2HSLHandler, RGB2HexHandler, Hex2RGBHandler, addToStatistics } = require('../controller/converter');
+const { keywordRGBHandler, RGB2HSLHandler, RGB2HexHandler, Hex2RGBHandler, addToStatistics, ColorInQuery } = require('../controller/converter');
 
+convertRoute.use(ColorInQuery);
 convertRoute.use('/keywordtorgb', addToStatistics);
 convertRoute.get('/keywordtorgb', keywordRGBHandler);
 convertRoute.get('/rgbtohsl', RGB2HSLHandler);
