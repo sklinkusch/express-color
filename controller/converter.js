@@ -21,7 +21,7 @@ exports.RGB2HexHandler = (req, res) => {
 exports.Hex2RGBHandler = (req, res) => {
   const { color: hex } = req.query;
   const [r, g, b] = convert.hex.rgb(hex);
-  return res.json({ red, green, blue });
+  return res.json({ red: r, green: g, blue: b });
 }
 
 exports.readStatistics = (req, res) => {
