@@ -7,20 +7,19 @@ exports.keywordRGBHandler = (req, res) => {
 }
 
 exports.RGB2HSLHandler = (req, res) => {
-  const { r, g, b } = req.query;
-  const color = convert.rgb.hsl(r, g, b);
-  const [hue, saturation, luminance] = color;
+  const colorInput = req.query.color.split(",").map(channel => parseInt(channel));
+  const [hue, saturation, luminance] = convert.rgb.hsl(...colorInput);
   return res.json({ hue, saturation, luminance });
 }
 
 exports.RGB2HexHandler = (req, res) => {
-  const { r, g, b } = req.query;
-  const hex = convert.rgb.hex(r, g, b);
+  const colorInput = req.query.color.split(",").map(channel => parseInt(channel));
+  const hex = convert.rgb.hex(...colorInput);
   return res.json({ hex });
 }
 
 exports.Hex2RGBHandler = (req, res) => {
-  const { hex } = req.query;
+  const { color: hex } = req.query;
   const [r, g, b] = convert.hex.rgb(hex);
   return res.json({ red, green, blue });
 }
