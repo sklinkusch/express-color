@@ -49,3 +49,9 @@ exports.addToStatistics = (req, res, next) => {
   }
   next();
 }
+
+exports.logMethod = (req, res, next) => {
+  const { method, url } = req.socket.parser.incoming
+  console.log(`${method}: ${url}`)
+  next()
+}
