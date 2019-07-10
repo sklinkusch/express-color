@@ -18,3 +18,11 @@ Furthermore, there is a statistic about how often a color is converted. This sta
   - GET requests
   - router
   - middlewares
+
+## How to use express-color
+### Offline usage
+
+#### Setup of the package
+1. Clone the repository using ```git clone git@github.com:sklinkusch/express-color.git``` (SSH) or ```git clone https://github.com/sklinkusch/express-color```.
+1. Move into the directory ```express-color``` and run ```npm install``` or ```yarn```.
+1. Run ```npm run dev``` or ```yarn dev``` in the folder. The server is available on ```https://localhost:3000```.
