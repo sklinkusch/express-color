@@ -47,8 +47,8 @@ Output:
 
 ##### RGB values to HSL values
 
-Input: ```https://localhost:3000/rgbtohsl?color=$RED,$GREEN,$BLUE```  
-Example: ```https://localhost:3000/rgbtohsl?color=255,105,180```  
+Input: ```https://localhost:3000/convert/rgbtohsl?color=$RED,$GREEN,$BLUE```  
+Example: ```https://localhost:3000/convert/rgbtohsl?color=255,105,180```  
 Your output contains a JSON object with the values for hue, saturation, and luminance.  
 Output: 
 ```
@@ -56,5 +56,17 @@ Output:
   "hue": 330,
   "saturation": 100,
   "luminance": 71
+}
+```
+
+##### RGB value to hexadecimal color code
+
+Input: ```https://localhost:3000/convert/rgbtohex?color=$RED,$GREEN,$BLUE```  
+Example: ```https://localhost:3000/convert/rgbtohex?color=255,105,180```  
+Your output contains a JSON object with a single hex value.  
+Output:  
+```
+{
+  "hex": "FF69B4"
 }
 ```
