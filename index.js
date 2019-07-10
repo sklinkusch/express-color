@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const router = require('./router/convert');
+const convertRoute = require('./router/convert');
 const { readStatistics } = require("./controller/converter");
 
-app.use('/convert', router)
+app.use('/convert', convertRoute)
 app.get('/statistics', readStatistics);
 
 const port = 3000
