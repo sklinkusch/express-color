@@ -52,3 +52,11 @@ exports.logMethod = (req, res, next) => {
   console.log(`${method}: ${url}`)
   next()
 }
+
+exports.ColorInQuery = (req, res, next) => {
+  if ("color" in req.query) {
+    next();
+  } else {
+    res.status(422).json({ error: { message: "missing query parameter 'color'" } })
+  }
+}
