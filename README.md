@@ -70,3 +70,17 @@ Output:
   "hex": "FF69B4"
 }
 ```
+
+##### Hexadecimal color code to RGB values
+
+Input: ```https://localhost:3000/convert/hextorgb?color=$HEXCODE```  
+Example: ```https://localhost:3000/convert/hextorgb?color=FF69B4```  
+Your output contains a JSON object with the values for red, green, and blue.  
+Output: 
+```
+{
+  "red": 255,
+  "green": 105,
+  "blue": 180
+}
+```
