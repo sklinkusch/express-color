@@ -1,3 +1,5 @@
+const convert = require('color-convert');
+
 exports.keywordRGBHandler = (req, res) => {
   const color = convert.keyword.rgb(req.query.color)
   const [red, green, blue] = color
