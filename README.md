@@ -35,12 +35,26 @@ Requests can be made in the browser or within JavaScript files using ```XMLHttpR
 
 Input: ```https://localhost:3000/convert/keywordtorgb?color=$COLOR```  
 Example: ```https://localhost:3000/convert/keywordtorgb?color=hotpink```  
-Your output contains a JSON object with the values for red, green, and blue:  
+Your output contains a JSON object with the values for red, green, and blue.  
 Output:
  ```
  {
   "red": 255,
   "green": 105,
   "blue": 180
+}
+```
+
+##### RGB values to HSL values
+
+Input: ```https://localhost:3000/rgbtohsl?color=$RED,$GREEN,$BLUE```  
+Example: ```https://localhost:3000/rgbtohsl?color=255,105,180```  
+Your output contains a JSON object with the values for hue, saturation, and luminance.  
+Output: 
+```
+{
+  "hue": 330,
+  "saturation": 100,
+  "luminance": 71
 }
 ```
