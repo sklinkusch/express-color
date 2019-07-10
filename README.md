@@ -26,3 +26,21 @@ Furthermore, there is a statistic about how often a color is converted. This sta
 1. Clone the repository using ```git clone git@github.com:sklinkusch/express-color.git``` (SSH) or ```git clone https://github.com/sklinkusch/express-color```.
 1. Move into the directory ```express-color``` and run ```npm install``` or ```yarn```.
 1. Run ```npm run dev``` or ```yarn dev``` in the folder. The server is available on ```https://localhost:3000```.
+
+#### Making requests
+
+Requests can be made in the browser or within JavaScript files using ```XMLHttpRequest```, ```fetch```, or ```axios```.
+
+##### CSS Color Name to RGB values
+
+Input: ```https://localhost:3000/convert/keywordtorgb?color=$COLOR```  
+Example: ```https://localhost:3000/convert/keywordtorgb?color=hotpink```  
+Your output contains a JSON object with the values for red, green, and blue:  
+Output:
+ ```
+ {
+  "red": 255,
+  "green": 105,
+  "blue": 180
+}
+```
