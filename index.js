@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
 const convertRoute = require('./router/convert');
-const { readStatistics } = require("./controller/converter");
+const { readStatistics, logMethod } = require("./controller/converter");
 
+app.use(logMethod)
 app.use('/convert', convertRoute)
 app.get('/statistics', readStatistics);
 
