@@ -8,3 +8,7 @@ exports.addToStatistics = (req, res, next) => {
   db.update(`colorStatistics.${color}`, n => n + 1 || 1).write();
   next();
 };
+
+exports.readStatistics = (req, res) => {
+  return res.json(db.getState());
+};
