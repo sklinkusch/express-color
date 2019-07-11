@@ -61,3 +61,23 @@ describe("Test RGB to Hex conversion", () => {
     expect(new ColorConverter("rgb", "hex", "0,0,255")).toEqual({ hex: "0000FF" });
   });
 });
+describe("Test hex to RGB conversion", () => {
+  test("converts hotpink", () => {
+    expect(new ColorConverter("hex", "rgb", "ff69b4")).toEqual({ red: 255, green: 105, blue: 180 });
+  });
+  test("converts white", () => {
+    expect(new ColorConverter("hex", "rgb", "ffffff")).toEqual({ red: 255, green: 255, blue: 255 });
+  });
+  test("converts black", () => {
+    expect(new ColorConverter("hex", "rgb", "000000")).toEqual({ red: 0, green: 0, blue: 0 });
+  });
+  test("converts red", () => {
+    expect(new ColorConverter("hex", "rgb", "ff0000")).toEqual({ red: 255, green: 0, blue: 0 });
+  });
+  test("converts green", () => {
+    expect(new ColorConverter("hex", "rgb", "008000")).toEqual({ red: 0, green: 128, blue: 0 });
+  });
+  test("converts blue", () => {
+    expect(new ColorConverter("hex", "rgb", "0000ff")).toEqual({ red: 0, green: 0, blue: 255 });
+  });
+});
