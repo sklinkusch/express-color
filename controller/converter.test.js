@@ -41,3 +41,23 @@ describe("Test RGB to HSL conversion", () => {
     expect(new ColorConverter("rgb", "hsl", "0,0,255")).toEqual({ hue: 240, saturation: 100, luminance: 50 });
   });
 });
+describe("Test RGB to Hex conversion", () => {
+  test("converts hotpink", () => {
+    expect(new ColorConverter("rgb", "hex", "255,105,180")).toEqual({ hex: "FF69B4" });
+  });
+  test("converts white", () => {
+    expect(new ColorConverter("rgb", "hex", "255,255,255")).toEqual({ hex: "FFFFFF" });
+  });
+  test("converts black", () => {
+    expect(new ColorConverter("rgb", "hex", "0,0,0")).toEqual({ hex: "000000" });
+  });
+  test("converts red", () => {
+    expect(new ColorConverter("rgb", "hex", "255,0,0")).toEqual({ hex: "FF0000" });
+  });
+  test("converts green", () => {
+    expect(new ColorConverter("rgb", "hex", "0,128,0")).toEqual({ hex: "008000" });
+  });
+  test("converts blue", () => {
+    expect(new ColorConverter("rgb", "hex", "0,0,255")).toEqual({ hex: "0000FF" });
+  });
+});
