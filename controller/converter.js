@@ -7,7 +7,7 @@ exports.conversion = (req, res, from, to) => {
     return res.status(400).json(convertedColor);
   }
   return res.json(convertedColor);
-}
+};
 
 class ColorConverter {
   constructor(from, to, colorInput) {
@@ -22,9 +22,13 @@ class ColorConverter {
         switch (this.to) {
           case "rgb":
             if (!/^[a-z]*$/.test(this.colorInput)) {
-              return this.typeError(`${this.colorInput} is not a valid input for keyword conversion.`)
+              return this.typeError(
+                `${
+                  this.colorInput
+                } is not a valid input for keyword conversion.`
+              );
             }
-            return this.keywordRGBHandler(this.colorInput)
+            return this.keywordRGBHandler(this.colorInput);
           default:
             return this.errorMessage(this.from, this.to, this.colorInput);
         }
@@ -49,12 +53,20 @@ class ColorConverter {
     }
   }
   errorMessage(from, to, input) {
-    return { error: { message: `The requested conversion of ${input} from ${from} to ${to} is currently not supported.` } }
+    return {
+      error: {
+        message: `The requested conversion of ${input} from ${from} to ${to} is currently not supported.`
+      }
+    };
   }
   keywordRGBHandler(colorInput) {
-    const color = convert.keyword.rgb(colorInput);
-    const [red, green, blue] = color;
-    return { red, green, blue };
+    try {
+      const color = convert.keyword.rgb(colorInput);
+      const [red, green, blue] = color;
+      return { red, green, blue };
+    } catch (error) {
+      return { error: { message: `The color ${colorInput} does not exist.` } };
+    }
   }
   RGB2HSLHandler(colorInput) {
     const [red, green, blue] = this.splitColors(colorInput);
