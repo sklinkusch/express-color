@@ -195,4 +195,19 @@ describe("insane conversions", () => {
       error: { message: "The color hottping does not exist." }
     });
   });
+  test("rgb gets a hex value", () => {
+    expect(new ColorConverter("rgb", "hsl", "B02BC2")).toEqual({
+      error: { message: "B02BC2 is not a valid input for rgb conversion." }
+    });
+  });
+  test("rgb gets a keyword", () => {
+    expect(new ColorConverter("rgb", "hsl", "hotpink")).toEqual({
+      error: { message: "hotpink is not a valid input for rgb conversion." }
+    });
+  });
+  test("rgb gets wrong values", () => {
+    expect(new ColorConverter("rgb", "hsl", "400,340,570")).toEqual({
+      error: { message: "The color 400,340,570 does not exist." }
+    });
+  });
 });
