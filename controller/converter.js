@@ -3,6 +3,9 @@ const convert = require("color-convert");
 exports.conversion = (req, res, from, to) => {
   const { color } = req.query;
   const convertedColor = new ColorConverter(from, to, color);
+  if ("error" in convertedColor) {
+    return res.status(400).json(convertedColor);
+  }
   return res.json(convertedColor);
 }
 
