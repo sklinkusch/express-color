@@ -81,3 +81,16 @@ describe("Test hex to RGB conversion", () => {
     expect(new ColorConverter("hex", "rgb", "0000ff")).toEqual({ red: 0, green: 0, blue: 255 });
   });
 });
+describe("combined conversions", () => {
+  test("RGB to hex and back", () => {
+    expect(new ColorConverter("rgb", "hex", "176,43,194")).toEqual({ hex: "B02BC2" });
+    expect(new ColorConverter("hex", "rgb", "B02BC2")).toEqual({ red: 176, green: 43, blue: 194 });
+  });
+});
+describe("insane conversions", () => {
+  test("keyword gets a hex string", () => {
+    expect(new ColorConverter("keyword", "rgb", "B02BC2")).toEqual({
+      error: { message: "B02BC2 is not a valid input for keyword conversion." }
+    });
+  });
+});
