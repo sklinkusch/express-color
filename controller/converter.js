@@ -139,4 +139,4 @@ exports.ColorInQuery = (req, res, next) => {
   }
 };
 
-exports.ColorConverter;
+module.exports = ColorConverter;
