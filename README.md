@@ -18,6 +18,7 @@ Furthermore, there is a statistic about how often a color is converted. This sta
   - GET requests
   - router
   - middlewares
+- lowdb
 
 ## How to use express-color
 ### Offline usage
