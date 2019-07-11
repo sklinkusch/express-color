@@ -5,10 +5,10 @@ This project was created by Stefan Klinkusch at Digital Career Institute in Berl
 ## Features
 
 It uses the [color-convert package](https://github.com/Qix-/color-convert) to perform the following color conversions:
-- CSS color name to RGB values
-- RGB values to HSL values
-- RGB values to hexadecimal color code
-- hexadecimal color code to RGB values
+- CSS color name &#x27A1; RGB values
+- RGB values &#x27A1; HSL values
+- RGB values &#x27A1; hexadecimal color code
+- hexadecimal color code &#x27A1; RGB values
 
 Furthermore, there is a statistic about how often a color is converted. This statistic file can also be displayed.
 
@@ -32,11 +32,18 @@ Furthermore, there is a statistic about how often a color is converted. This sta
 
 Requests can be made in the browser or within JavaScript files using ```XMLHttpRequest```, ```fetch```, or ```axios```.
 
-##### CSS Color Name to RGB values
+##### CSS Color Name &#x27A1; RGB values
 
-Input: ```https://localhost:3000/convert/keywordtorgb?color=$COLOR```  
-Example: ```https://localhost:3000/convert/keywordtorgb?color=hotpink```  
+Input: 
+```
+https://localhost:3000/convert/keywordtorgb?color=$COLOR
+```  
+Example: 
+```
+https://localhost:3000/convert/keywordtorgb?color=hotpink
+```  
 Your output contains a JSON object with the values for red, green, and blue.  
+
 Output:
  ```
  {
@@ -46,11 +53,18 @@ Output:
 }
 ```
 
-##### RGB values to HSL values
+##### RGB values &#x27A1; HSL values
 
-Input: ```https://localhost:3000/convert/rgbtohsl?color=$RED,$GREEN,$BLUE```  
-Example: ```https://localhost:3000/convert/rgbtohsl?color=255,105,180```  
-Your output contains a JSON object with the values for hue, saturation, and luminance.  
+Input: 
+```
+https://localhost:3000/convert/rgbtohsl?color=$RED,$GREEN,$BLUE
+```  
+Example: 
+```
+https://localhost:3000/convert/rgbtohsl?color=255,105,180
+```  
+Your output contains a JSON object with the values for hue, saturation, and luminance. 
+
 Output: 
 ```
 {
@@ -60,11 +74,18 @@ Output:
 }
 ```
 
-##### RGB value to hexadecimal color code
+##### RGB value &#x27A1; hexadecimal color code
 
-Input: ```https://localhost:3000/convert/rgbtohex?color=$RED,$GREEN,$BLUE```  
-Example: ```https://localhost:3000/convert/rgbtohex?color=255,105,180```  
+Input: 
+```
+https://localhost:3000/convert/rgbtohex?color=$RED,$GREEN,$BLUE
+```  
+Example: 
+```
+https://localhost:3000/convert/rgbtohex?color=255,105,180
+```  
 Your output contains a JSON object with a single hex value.  
+
 Output:  
 ```
 {
@@ -72,11 +93,18 @@ Output:
 }
 ```
 
-##### Hexadecimal color code to RGB values
+##### Hexadecimal color code &#x27A1; RGB values
 
-Input: ```https://localhost:3000/convert/hextorgb?color=$HEXCODE```  
-Example: ```https://localhost:3000/convert/hextorgb?color=FF69B4```  
+Input: 
+```
+https://localhost:3000/convert/hextorgb?color=$HEXCODE
+```  
+Example: 
+```
+https://localhost:3000/convert/hextorgb?color=FF69B4
+```  
 Your output contains a JSON object with the values for red, green, and blue.  
+
 Output: 
 ```
 {
@@ -88,7 +116,7 @@ Output:
 
 ##### Statistic request
 
-It shows for the conversion CSS keyword &#x27A1; RGB values the quantity how often a certain color was converted on your system.
+It shows for the conversion CSS color name &#x27A1; RGB values the quantity how often a certain color was converted on your system. The data is read from a ```db.json``` file that is created during the procession of the first request.
 
 Input: ```https://localhost:3000/statistics```  
 Output:
@@ -99,3 +127,6 @@ Output:
   }
 }
 ```
+
+## Attention
+The color conversion is not done with an arbitrary precision. Chained conversions may lead to unexpected results.
