@@ -19,20 +19,23 @@ class ColorConverter {
   convert() {
     switch (this.from) {
       case "keyword":
+        if (!/^[a-z]*$/.test(this.colorInput)) {
+          return this.typeError(
+            `${this.colorInput} is not a valid input for keyword conversion.`
+          );
+        }
         switch (this.to) {
           case "rgb":
-            if (!/^[a-z]*$/.test(this.colorInput)) {
-              return this.typeError(
-                `${
-                  this.colorInput
-                } is not a valid input for keyword conversion.`
-              );
-            }
             return this.keywordRGBHandler(this.colorInput);
           default:
             return this.errorMessage(this.from, this.to, this.colorInput);
         }
       case "rgb":
+        if (!/^[0-9]+,[0-9]+,[0-9]+$/.test(this.colorInput)) {
+          return this.typeError(
+            `${this.colorInput} is not a valid input for rgb conversion.`
+          );
+        }
         switch (this.to) {
           case "hsl":
             return this.RGB2HSLHandler(this.colorInput);
@@ -69,18 +72,47 @@ class ColorConverter {
     }
   }
   RGB2HSLHandler(colorInput) {
-    const [red, green, blue] = this.splitColors(colorInput);
-    const [hue, saturation, luminance] = convert.rgb.hsl(red, green, blue);
-    return { hue, saturation, luminance };
+    try {
+      const [red, green, blue] = this.splitColors(colorInput);
+      const exists = this.checkRGB(red, green, blue);
+      if (!exists) {
+        return {
+          error: { message: `The color ${colorInput} does not exist.` }
+        };
+      }
+      const [hue, saturation, luminance] = convert.rgb.hsl(red, green, blue);
+      return { hue, saturation, luminance };
+    } catch (error) {
+      return { error: { message: `The color ${colorInput} does not exist.` } };
+    }
   }
   RGB2HexHandler(colorInput) {
-    const [red, green, blue] = this.splitColors(colorInput);
-    const hex = convert.rgb.hex(red, green, blue);
-    return { hex };
+    try {
+      const [red, green, blue] = this.splitColors(colorInput);
+      const exists = this.checkRGB(red, green, blue);
+      if (!exists) {
+        return {
+          error: { message: `The color ${colorInput} does not exist.` }
+        };
+      }
+      const hex = convert.rgb.hex(red, green, blue);
+      return { hex };
+    } catch (error) {
+      return { error: { message: `The color ${colorInput} does not exist.` } };
+    }
   }
   Hex2RGBHandler(colorInput) {
     const [red, green, blue] = convert.hex.rgb(colorInput);
     return { red, green, blue };
+  }
+  checkRGB(...values) {
+    let decider = true;
+    values.forEach(channel => {
+      if (channel < 0 || channel > 255) {
+        decider = false;
+      }
+    });
+    return decider;
   }
   splitColors(colorInput) {
     return colorInput.split(",").map(channel => parseInt(channel));
