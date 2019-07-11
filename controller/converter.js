@@ -69,8 +69,6 @@ class ColorConverter {
   }
 }
 
-module.exports = ColorConverter;
-
 // exports.keywordRGBHandler = (req, res) => {
 //   const color = convert.keyword.rgb(req.query.color);
 //   const [red, green, blue] = color;
@@ -137,3 +135,5 @@ exports.ColorInQuery = (req, res, next) => {
       .json({ error: { message: "missing query parameter 'color'" } });
   }
 };
+
+exports.ColorConverter;
