@@ -85,3 +85,17 @@ Output:
   "blue": 180
 }
 ```
+
+##### Statistic request
+
+It shows for the conversion CSS keyword &#x27A1; RGB values the quantity how often a certain color was converted on your system.
+
+Input: ```https://localhost:3000/statistics```  
+Output:
+```
+{
+  "colorStatistics": {
+    "hotpink": 10
+  }
+}
+```
