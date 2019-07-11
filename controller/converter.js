@@ -21,6 +21,9 @@ class ColorConverter {
       case "keyword":
         switch (this.to) {
           case "rgb":
+            if (!/^[a-z]*$/.test(this.colorInput)) {
+              return this.typeError(`${this.colorInput} is not a valid input for keyword conversion.`)
+            }
             return this.keywordRGBHandler(this.colorInput)
           default:
             return this.errorMessage(this.from, this.to, this.colorInput);
@@ -69,6 +72,9 @@ class ColorConverter {
   }
   splitColors(colorInput) {
     return colorInput.split(",").map(channel => parseInt(channel));
+  }
+  typeError(message) {
+    return { error: { message } };
   }
 }
 
