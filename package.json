@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "Stefan Klinkusch <stefan.klinkusch@googlemail.com> (https://sklinkusch.now.sh/)",
@@ -16,6 +16,7 @@
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }
