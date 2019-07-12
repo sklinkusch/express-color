@@ -210,4 +210,14 @@ describe("insane conversions", () => {
       error: { message: "The color 400,340,570 does not exist." }
     });
   });
+  test("hex gets keyword", () => {
+    expect(new ColorConverter("hex", "rgb", "hotpink")).toEqual({
+      error: { message: "hotpink is not a valid input for hex conversion." }
+    });
+  });
+  test("hex gets rgb values", () => {
+    expect(new ColorConverter("hex", "rgb", "255,105,180")).toEqual({
+      error: { message: "255,105,180 is not a valid input for hex conversion." }
+    });
+  });
 });
