@@ -45,6 +45,11 @@ class ColorConverter {
             return this.errorMessage(this.from, this.to, this.colorInput);
         }
       case "hex":
+        if (!/^[0-9abcdef]{6}$/i.test(this.colorInput)) {
+          return this.typeError(
+            `${this.colorInput} is not a valid input for hex conversion.`
+          );
+        }
         switch (this.to) {
           case "rgb":
             return this.Hex2RGBHandler(this.colorInput);
@@ -102,8 +107,12 @@ class ColorConverter {
     }
   }
   Hex2RGBHandler(colorInput) {
-    const [red, green, blue] = convert.hex.rgb(colorInput);
-    return { red, green, blue };
+    try {
+      const [red, green, blue] = convert.hex.rgb(colorInput);
+      return { red, green, blue };
+    } catch (error) {
+      return { error: { message: `The color ${colorInput} does not exist.` } };
+    }
   }
   checkRGB(...values) {
     let decider = true;
