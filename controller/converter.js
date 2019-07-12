@@ -198,4 +198,4 @@ exports.ColorInQuery = (req, res, next) => {
   }
 };
 
-module.exports = ColorConverter;
+// module.exports = ColorConverter;
