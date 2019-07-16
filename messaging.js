@@ -29,5 +29,7 @@ exports.showHelp = () => {
   4. hexadecimal color codes to RGB color values
     https://localhost:3000/convert/hextorgb?color=HEXCODE
     (replace HEXCODE by the hexadecimal color code)
+
+    For further information, please refer to the manual on https://github.com/sklinkusch/express-color
   `);
 }
