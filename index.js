@@ -3,11 +3,11 @@ const app = express();
 const convertRoute = require("./router/convert");
 const { logMethod } = require("./controller/converter");
 // const { readStatistics } = require("./controller/converter");
-const { readStatistics } = require("./model/statistics");
+// const { readStatistics } = require("./model/statistics");
 
 app.use(logMethod);
 app.use("/convert", convertRoute);
-app.get("/statistics", readStatistics);
+// app.get("/statistics", readStatistics);
 
 const port = 3000;
 

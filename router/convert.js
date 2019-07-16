@@ -8,10 +8,10 @@ const convertRoute = express.Router();
 // } = require("../controller/converter");
 const { ColorInQuery } = require("../controller/converter");
 const { conversion } = require("../controller/converter");
-const { addToStatistics } = require("../model/statistics");
+// const { addToStatistics } = require("../model/statistics");
 
 convertRoute.use(ColorInQuery);
-convertRoute.use("/keywordtorgb", addToStatistics);
+// convertRoute.use("/keywordtorgb", addToStatistics);
 convertRoute.get("/keywordtorgb", (req, res) => conversion(req, res, "keyword", "rgb"));
 convertRoute.get("/rgbtohsl", (req, res) => conversion(req, res, "rgb", "hsl"));
 convertRoute.get("/rgbtohex", (req, res) => conversion(req, res, "rgb", "hex"));
