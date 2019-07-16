@@ -138,18 +138,109 @@ Output:
 }
 ```
 
-##### Statistic request
+### Online usage
 
-It shows for the conversion CSS color name &#x27A1; RGB values the quantity how often a certain color was converted on your system. The data is read from a `db.json` file that is created during the procession of the first request.
+The API is running online on https://colors.sklinkusch.now.sh and https://express-color.sklinkusch.now.sh.
 
-Input: `https://localhost:3000/statistics`  
+##### CSS Color Name &#x27A1; RGB values
+
+Input:
+
+```
+https://colors.sklinkusch.now.sh/convert/keywordtorgb?color=$COLOR
+```
+
+Example:
+
+```
+https://colors.sklinkusch.now.sh/convert/keywordtorgb?color=hotpink
+```
+
+Your output contains a JSON object with the values for red, green, and blue.
+
 Output:
 
 ```
 {
-  "colorStatistics": {
-    "hotpink": 10
-  }
+ "red": 255,
+ "green": 105,
+ "blue": 180
+}
+```
+
+##### RGB values &#x27A1; HSL values
+
+Input:
+
+```
+https://colors.sklinkusch.now.sh/convert/rgbtohsl?color=$RED,$GREEN,$BLUE
+```
+
+Example:
+
+```
+https://colors.sklinkusch.now.sh/convert/rgbtohsl?color=255,105,180
+```
+
+Your output contains a JSON object with the values for hue, saturation, and luminance.
+
+Output:
+
+```
+{
+  "hue": 330,
+  "saturation": 100,
+  "luminance": 71
+}
+```
+
+##### RGB value &#x27A1; hexadecimal color code
+
+Input:
+
+```
+https://colors.sklinkusch.now.sh/convert/rgbtohex?color=$RED,$GREEN,$BLUE
+```
+
+Example:
+
+```
+https://colors.sklinkusch.now.sh/convert/rgbtohex?color=255,105,180
+```
+
+Your output contains a JSON object with a single hex value.
+
+Output:
+
+```
+{
+  "hex": "FF69B4"
+}
+```
+
+##### Hexadecimal color code &#x27A1; RGB values
+
+Input:
+
+```
+https://colors.sklinkusch.now.sh/convert/hextorgb?color=$HEXCODE
+```
+
+Example:
+
+```
+https://colors.sklinkusch.now.sh/convert/hextorgb?color=FF69B4
+```
+
+Your output contains a JSON object with the values for red, green, and blue.
+
+Output:
+
+```
+{
+  "red": 255,
+  "green": 105,
+  "blue": 180
 }
 ```
 
