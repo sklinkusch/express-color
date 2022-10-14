@@ -13,10 +13,13 @@
   "dependencies": {
     "color-convert": "^2.0.0",
     "express": "^4.17.1",
-    "lowdb": "^1.0.0"
+    "lowdb": "^3.0.0"
   },
   "devDependencies": {
     "jest": "^29.1.2",
     "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
